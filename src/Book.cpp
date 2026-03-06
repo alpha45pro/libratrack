@@ -21,7 +21,7 @@ bool Book::isAvailable() const {
 }
 
 bool Book::validateISBN() const {
-    if (isbn_.length() != 12) return false;
+    if (isbn_.length() != 13) return false;
     for (char c : isbn_) {
         if (!std::isdigit(c)) return false;
     }
@@ -29,7 +29,7 @@ bool Book::validateISBN() const {
 }
 
 void Book::decrementCopies() {
-    --copies_available_;
+    if (copies_available_ > 0) --copies_available_;
 }
 
 void Book::incrementCopies() {
