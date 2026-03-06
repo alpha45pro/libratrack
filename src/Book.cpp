@@ -39,9 +39,9 @@ void Book::incrementCopies() {
 }
 
 void Book::setPublicationYear(int year) {
-    publication_year_ = year;
+    if (year > 0) publication_year_ = year;
 }
 
 std::string Book::getFullTitle() const {
-    return author_ + " - " + title_;
+    return title_ + " by " + author_;
 }
